@@ -2,9 +2,11 @@
   "name": "express-api-jest-setup",
   "version": "1.0.0",
   "description": "default setup for an express api server with TS and testing with Jest",
-  "main": "src/index.ts",
+  "main": "src/server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.ts",
+    "test": "jest --watchAll -c ./jest.unit.json",
+    "test:coverage": "jest --coverage -c ./jest.unit.json",
     "build": "rm -rf build/ && prettier --write src/ && tsc"
   },
   "repository": {
@@ -19,9 +21,17 @@
   },
   "homepage": "https://github.com/jeffreyswheeler/express-api-jest-setup#readme",
   "dependencies": {
+    "express": "^4.17.3",
     "nodemon": "^2.0.15",
     "prettier": "^2.5.1",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^17.0.18",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.3"
   }
 }
